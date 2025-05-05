@@ -16,13 +16,10 @@ public class BorrowRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long recordID;
+    private Long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate borrowDate;
-
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dueDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
@@ -34,7 +31,8 @@ public class BorrowRecord {
     @ManyToOne
     @JoinColumn(name = "reader_id")
     private Reader reader;
-
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dueDate;
     public boolean hasReturned() {
         return returnDate != null;
     }

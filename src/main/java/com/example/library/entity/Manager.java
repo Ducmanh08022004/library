@@ -8,7 +8,14 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@PrimaryKeyJoinColumn(name = "username")
-public class Manager extends User {
+public class Manager {
+
+    @Id // Đánh dấu staffID là khóa chính
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long staffID;
+
+    private String username;
+    private String password;
+    private String role;
+    private String fullname;
 }
